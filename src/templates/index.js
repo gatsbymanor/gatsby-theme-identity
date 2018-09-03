@@ -30,64 +30,12 @@ const applyBackground = (src) => {
 class Index extends React.Component {
   constructor(props) {
     super(props)
-    this.default = {
-
-      bio: {
-        name: 'Jane Doe',
-        headline: 'senior psychonautics engineer',
-        photo: {
-          sizes: {
-            src: avatar,
-          },
-        }
-      },
-
-      backgroundImage: {
-        sizes: {
-          title: 'mountains',
-          sizes: {
-            src: bg,
-          }
-        }
-      },
-
-      socialIcons: {
-        edges: [
-          {
-            node: {
-              className: 'fa-twitter',
-              url: 'https://twitter.com',
-            }
-          },
-          {
-            node: {
-              className: 'fa-instagram',
-              url: 'https://instagram.com',
-              name: 'Instagram',
-            },
-          },
-          {
-            node: {
-              className: 'fa-facebook',
-              url: 'https://facebook.com',
-              name: 'Facebook',
-            },
-          },
-        ],
-      }
-    }
-
-    // data config
-    this.data = this.props.pageContext.data
-    this.bio = this.data.bio || this.default.displayName
-    this.socialIcons = this.data.socialIcons || this.default.socialIcons
-    this.backgroundImage = this.data.backgroundImage || this.default.backgroundImage
   }
 
 
   render() {
 
-    applyBackground(this.backgroundImage.sizes.src)
+    applyBackground(bg)
 
     return (
     	<div id="wrapper">
@@ -96,22 +44,23 @@ class Index extends React.Component {
     			<header>
     				<span className="avatar">
               <img
-                src={this.bio.photo.sizes.src} alt="" />
+                src={avatar} alt="" />
             </span>
-    				<h1>{this.bio.displayName}</h1>
-    				<p>{this.bio.headline}</p>
+    				<h1>Jane Doe</h1>
+    				<p>senior psychonautics engineer</p>
     			</header>
 
     			<footer>
     				<ul className="icons">
-              {this.socialIcons.edges.map((obj, idx) => {
-                const { name, url, className } = obj.node
-                return (
-                  <li key={idx}>
-                    <a href={url} className={className}>{name}</a>
-                  </li>
-                )
-              })}
+              <li>
+                <a href="https://twitter.com" className="fa-twitter">Twitter</a>
+              </li>
+              <li>
+                <a href="https://facebook.com" className="fa-facebook">Facebook</a>
+              </li>
+              <li>
+                <a href="https://instagram.com" className="fa-instagram">Instagram</a>
+              </li>
     				</ul>
     			</footer>
     		</section>
@@ -130,5 +79,3 @@ class Index extends React.Component {
 }
 
 export default Index
-
-// TODO: figure out a way to do string interpolation on graphql query
