@@ -28,10 +28,6 @@ const applyBackground = (src) => {
 }
 
 class Index extends React.Component {
-  constructor(props) {
-    super(props)
-  }
-
 
   render() {
 
