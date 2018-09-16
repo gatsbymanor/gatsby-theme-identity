@@ -5,7 +5,7 @@ exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
 
   try {
-    const results = await gtk.fetchDataFromSources(graphql)
+    // const results = await gtk.fetchDataFromSources(graphql)
 
     createPage({
       path: "/",
