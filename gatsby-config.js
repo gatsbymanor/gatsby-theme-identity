@@ -17,9 +17,10 @@ var sitePlugins = [
   'gatsby-plugin-offline',
 ]
 
-gtk.loadPlugins().forEach(plugin => {
-  sitePlugins.push(plugin)
-})
+// TODO: Make this not intrusive for demos
+// gtk.loadPlugins().forEach(plugin => {
+//   sitePlugins.push(plugin)
+// })
 
 module.exports = {
   pathPrefix: process.env.CI ? `/identity` : `/`,

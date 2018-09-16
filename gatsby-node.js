@@ -10,9 +10,7 @@ exports.createPages = async ({ graphql, actions }) => {
     createPage({
       path: "/",
       component: path.resolve(`./src/templates/index.js`),
-      context: {
-        ...results
-      },
+      context: {},
     })
   } catch (e) {
     throw e
